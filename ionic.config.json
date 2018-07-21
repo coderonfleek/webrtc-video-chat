@@ -1,0 +1,8 @@
+{
+  "name": "webrtc-chat",
+  "app_id": "",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
