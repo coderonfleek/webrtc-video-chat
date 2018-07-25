@@ -8,11 +8,12 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+  <h1 id="text" *ngIf="!inCall">Not currently in a call. Tell your friend to call your gmail to start a call.</h1>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <video id="localVideo" #local></video>
+  <div id="remote" #remote></div>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <!-- <button (click)="call()" primary fab fab-bottom fab-right>
+    <ion-icon name="call"></ion-icon>
+  </button> -->
 </ion-content>
