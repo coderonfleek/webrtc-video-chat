@@ -3,17 +3,32 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>Video Chat Demo</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h1 id="text" *ngIf="!inCall">Not currently in a call. Tell your friend to call your gmail to start a call.</h1>
+<ion-content padding id="signInPage">
+  <h3>Sign In</h3>
 
-  <video id="localVideo" #local></video>
-  <div id="remote" #remote></div>
+  <div id="signInForm">
+    <ion-list>
 
-  <!-- <button (click)="call()" primary fab fab-bottom fab-right>
-    <ion-icon name="call"></ion-icon>
-  </button> -->
+      <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input type="email" [(ngModel)]="loginForm.email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Display Name</ion-label>
+        <ion-input type="text" [(ngModel)]="loginForm.name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <button ion-button large block (click)="loginUser()">Sign In</button>
+      </ion-item>
+
+    </ion-list>
+  </div>
+
+
+
 </ion-content>

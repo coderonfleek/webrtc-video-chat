@@ -1,27 +1,21 @@
 import { Component, ViewChild, ElementRef } from "@angular/core";
+
+import SimpleWebRTC from "simplewebrtc";
 import {
-  IonicPage,
   NavController,
   AlertController,
   ToastController,
   ActionSheetController
 } from "ionic-angular";
 
-import SimpleWebRTC from "simplewebrtc";
+//This is to allow the linter ignore the global webtrc variable warning
+//declare var SimpleWebRTC: any;
 
-/**
- * Generated class for the CallPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
-@IonicPage()
 @Component({
-  selector: "page-call",
-  templateUrl: "call.html"
+  selector: "page-home",
+  templateUrl: "home.html"
 })
-export class CallPage {
+export class HomePage {
   @ViewChild("local") localVideo: ElementRef;
   @ViewChild("remote") remoteVideo: ElementRef;
 
