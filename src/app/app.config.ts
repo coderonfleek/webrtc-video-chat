@@ -7,6 +7,6 @@ export const appconfig = {
     storageBucket: "",
     messagingSenderId: "916962594496"
   },
-  users_endpoint: "users",
+  users_endpoint: "voiceusers",
   chats_endpoint: "chats"
 };

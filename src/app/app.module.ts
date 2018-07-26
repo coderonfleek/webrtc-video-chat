@@ -15,9 +15,18 @@ import { CallPage } from "../pages/call/call";
 import { appconfig } from "./app.config";
 import { ChatService } from "./app.service";
 import { IonicStorageModule } from "../../node_modules/@ionic/storage";
+import { CalloptionsPage } from "../pages/calloptions/calloptions";
+import { CallusersPage } from "../pages/callusers/callusers";
 
 @NgModule({
-  declarations: [MyApp, HomePage, ListPage, CallPage],
+  declarations: [
+    MyApp,
+    HomePage,
+    ListPage,
+    CallPage,
+    CalloptionsPage,
+    CallusersPage
+  ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
@@ -28,7 +37,14 @@ import { IonicStorageModule } from "../../node_modules/@ionic/storage";
     })
   ],
   bootstrap: [IonicApp],
-  entryComponents: [MyApp, HomePage, ListPage, CallPage],
+  entryComponents: [
+    MyApp,
+    HomePage,
+    ListPage,
+    CallPage,
+    CalloptionsPage,
+    CallusersPage
+  ],
   providers: [
     StatusBar,
     SplashScreen,

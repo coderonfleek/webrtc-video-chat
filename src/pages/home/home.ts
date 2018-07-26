@@ -11,6 +11,7 @@ import { ChatService } from "../../app/app.service";
 import { Storage } from "@ionic/storage";
 import { appconfig } from "../../app/app.config";
 import { CallPage } from "../call/call";
+import { CalloptionsPage } from "../calloptions/calloptions";
 
 @Component({
   selector: "page-home",
@@ -30,14 +31,14 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
     this.storage.get("chatuser").then(chatuser => {
-      if (chatuser && chatuser.email !== "") {
-        this.navCtrl.push(CallPage);
+      if (chatuser && chatuser.phone !== "") {
+        this.navCtrl.push(CalloptionsPage);
       }
     });
   }
 
   loginUser() {
-    if (this.loginForm.email != "") {
+    if (this.loginForm.phone != "") {
       //Check if email already exists
       let myLoader = this.loadingCtrl.create({
         content: "Please wait..."
@@ -45,7 +46,7 @@ export class HomePage implements OnInit {
       myLoader.present().then(() => {
         this.db
           .collection<User>(appconfig.users_endpoint, ref => {
-            return ref.where("email", "==", this.loginForm.email);
+            return ref.where("phone", "==", this.loginForm.phone);
           })
           .valueChanges()
           .subscribe(users => {
@@ -71,7 +72,7 @@ export class HomePage implements OnInit {
                   });
                   toast.present();
 
-                  this.navCtrl.push(CallPage);
+                  this.navCtrl.push(CalloptionsPage);
                 })
                 .catch(err => {
                   console.log(err);
@@ -89,13 +90,13 @@ export class HomePage implements OnInit {
               toast.present();
               myLoader.dismiss();
 
-              this.navCtrl.push(CallPage);
+              this.navCtrl.push(CalloptionsPage);
             }
           });
       });
     } else {
       let toast = this.toastCtrl.create({
-        message: "Enter Email to log in",
+        message: "Enter Phone Number to log in",
         duration: 3000,
         position: "top"
       });

@@ -8,6 +8,7 @@ import {
 } from "ionic-angular";
 
 import SimpleWebRTC from "simplewebrtc";
+import { ChatService } from "../../app/app.service";
 
 /**
  * Generated class for the CallPage page.
@@ -35,7 +36,8 @@ export class CallPage {
     public navCtrl: NavController,
     private alertCtrl: AlertController,
     private toastCtrl: ToastController,
-    private actionCtrl: ActionSheetController
+    private actionCtrl: ActionSheetController,
+    private chatservice: ChatService
   ) {}
 
   ionViewDidEnter() {
@@ -51,7 +53,8 @@ export class CallPage {
     });
 
     //this.webRTC.joinRoom(sessionStorage.getItem("userEmail"));
-    this.webRTC.joinRoom("fik4christ");
+    console.log(this.chatservice.currentChatPairId);
+    this.webRTC.joinRoom(this.chatservice.currentChatPairId);
 
     // connection status
     this.webRTC.on("videoAdded", (video, peer) => {

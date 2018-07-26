@@ -36,9 +36,9 @@ export class ChatService {
   createPairId(user1, user2) {
     let pairId;
     if (user1.time < user2.time) {
-      pairId = `${user1.email}|${user2.email}`;
+      pairId = `${user1.phone}|${user2.phone}`;
     } else {
-      pairId = `${user2.email}|${user1.email}`;
+      pairId = `${user2.phone}|${user1.phone}`;
     }
 
     return pairId;
